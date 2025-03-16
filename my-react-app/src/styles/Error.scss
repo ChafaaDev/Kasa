@@ -1,0 +1,14 @@
+.error-page-container{
+    display: flex;
+    flex-direction: column;
+    gap:7em;
+    align-items: center;
+    
+    .error-message{
+        color: #FF6060;
+        font-size: 36px;
+    }
+    a{
+        color:inherit;
+    }
+}

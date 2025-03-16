@@ -37,11 +37,13 @@ $lightBackgroundColor:#F6F6F6;
     grid:auto/repeat(3,1fr);
     background-color: $lightBackgroundColor;
     border-radius: 10px;
+    padding-block: 30px;
     .gallery-item{
       height: 400px;
       width: 400px;
       border-radius: 10px;
       position: relative;
+
       img{
         height: 100%;
         width: 100%;

@@ -1,6 +1,7 @@
 import logo from '../../assets/LOGO.png'
 import '../../../src/styles/Header.scss'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 function Header (){
     return(
         <header>

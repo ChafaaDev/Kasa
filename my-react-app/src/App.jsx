@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import Home from './Pages/home'
 import About from './Pages/About'
 import './styles/app.scss'
+import Error from './Pages/Error'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path='/Apropos' element={<About />}/>
+        <Route path='*' element={<Error />}/>
       </Routes>
      <Footer />
     </Router>  
