@@ -1,12 +1,64 @@
+$lightBackgroundColor:#F6F6F6;
 
-.banner{
+.home-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap:30px;
+.home-banner-container{
     height: 225px;
     width: 100%;
     border-radius: 20px;
-    img{
-        object-fit: cover;
-        height: 100%;
-        border-radius: 20px;
-        width: 100%;
+    background-image: url('../assets/home-banner.png');
+    background-color: rgba(0 0 0/0.8);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; 
+    h1{
+      
+        color: #FFFFFF;
+        z-index: 100;
     }
+    
+}
+.home-banner-container::after{
+    content: '';
+    height: 100%;
+    width: 100%;
+    position:absolute;
+    background-color: rgba(0 0 0/0.5);
+    border-radius: 20px;
+}
+.gallery-home{
+    display: grid;
+    grid:auto/repeat(3,1fr);
+    background-color: $lightBackgroundColor;
+    border-radius: 10px;
+    .gallery-item{
+      height: 340px;
+      width: 340px;
+      border-radius: 10px;
+      position: relative;
+      img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+        
+        
+      }
+      .card-title{
+        z-index: 100;
+        position: absolute;
+        bottom:5%;
+        left:5%;
+        color: #FFFFFF;
+        font-size: 18px;
+        font-weight: 700;
+      }
+    }
+}
 }

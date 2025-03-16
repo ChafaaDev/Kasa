@@ -8,8 +8,8 @@ function Header (){
             <img src={logo} alt="logo Kasa" />
                 <ul>
                    
-                   <Link to="acceuil"><li>Acceuil</li></Link> 
-                    <li>A propos</li>
+                   <Link to="/"><li>Acceuil</li></Link> 
+                   <Link to="/Apropos"><li>A propos</li></Link>
                 </ul>
             </nav>
         </header>
