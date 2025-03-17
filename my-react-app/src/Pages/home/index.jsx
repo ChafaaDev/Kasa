@@ -1,7 +1,7 @@
 // import banner from '../../assets/home-banner.png'
 import '../../../src/styles/Home.scss'
 import Card from '../../components/Card'
-import { AppartList } from '../../data/AppartList'
+import AppartList from'../../data/AppartList.json'
 function Home(){
 
     return(
@@ -13,8 +13,10 @@ function Home(){
             <div className="gallery-home">
                 {AppartList.map(appart=>
                     <Card
-                    picture={appart.pictures[0]}
-                    title={appart.title}/>
+                    id = {appart.id}
+                    picture={appart.cover}
+                    title={appart.title}
+                    />
                 )}
              
             </div>

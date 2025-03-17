@@ -1,6 +1,6 @@
 import logo from '../../assets/LOGO.png'
 import '../../../src/styles/Header.scss'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
 function Header (){
     return(
@@ -9,8 +9,8 @@ function Header (){
             <img src={logo} alt="logo Kasa" />
                 <ul>
                    
-                   <Link to="/"><li>Acceuil</li></Link> 
-                   <Link to="/Apropos"><li>A propos</li></Link>
+                   <NavLink to="/" className={({isActive})=>(isActive?'active-link':"")}><li>Accueil</li></NavLink> 
+                   <NavLink to="/Apropos" className={({isActive})=>(isActive?"active-link":"")}><li>A propos</li></NavLink>
                 </ul>
             </nav>
         </header>

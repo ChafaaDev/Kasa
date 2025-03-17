@@ -33,12 +33,15 @@ $lightBackgroundColor:#F6F6F6;
     border-radius: 20px;
 }
 .gallery-home{
-    display: grid;
-    grid:auto/repeat(3,1fr);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
     background-color: $lightBackgroundColor;
     border-radius: 10px;
     padding-block: 30px;
     .gallery-item{
+      flex: 1 1 auto;
+      flex-basis: 25%;
       height: 400px;
       width: 400px;
       border-radius: 10px;
