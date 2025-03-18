@@ -2,6 +2,7 @@
 import '../../../src/styles/Home.scss'
 import Card from '../../components/Card'
 import AppartList from'../../data/AppartList.json'
+import { Link } from 'react-router-dom'
 function Home(){
 
     return(
@@ -11,12 +12,15 @@ function Home(){
                     <h1>Chez vous, partout et ailleurs</h1>
             </div>
             <div className="gallery-home">
-                {AppartList.map(appart=>
+                {AppartList.map((appart, index)=>
+                <Link to={`/logement/${appart.id}`}>
                     <Card
+                    key={index}
                     id = {appart.id}
                     picture={appart.cover}
                     title={appart.title}
                     />
+                </Link>   
                 )}
              
             </div>

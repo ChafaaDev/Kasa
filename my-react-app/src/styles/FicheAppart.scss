@@ -1,0 +1,27 @@
+.slider{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    .slider-item{
+        width: 100%;
+        height: 500px;
+    }
+    .prev-button, .next-button{
+        border: none;
+        background-color: transparent;
+        position: absolute;
+        top: 50%;
+        cursor: pointer;
+    }
+    .prev-button{
+        left: 5px;
+        transform: rotate(-90deg);
+    }
+    .next-button{
+        right: 5px;
+        transform: rotate(90deg);
+    }
+    .slider-pagination{
+        align-self: center;
+    }
+}
