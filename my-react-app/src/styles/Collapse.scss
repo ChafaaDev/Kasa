@@ -1,3 +1,4 @@
+$main-bg-color:#F6F6F6;
 .collapse-container{
     .collapse-item{
         display: flex;
@@ -8,7 +9,7 @@
         .arrow{
             margin-right: auto;
             cursor: pointer;
-            transition: 1s ease;
+            transition: transform 0.3s ease;
             border: none;
             background-color: transparent;
         }
@@ -22,25 +23,12 @@
         
     }
     .description{
-        display: none;
-        transition-property: display;
-        transition-duration: 5s;
+        background-color:$main-bg-color;
+        overflow: hidden;
+        padding: 0 1em;
+        transition: height .4s linear;
+        margin: 0;
     }
-    .display{
-        display: block;
-        animation: .5s showup linear infinite;
-        animation-iteration-count: 1;
-    }
+
 }
-@keyframes showup {
-    from{
-        transform: translate(0,-20px);
-    }
-    to{
-        transform: translate(0,0);
-    }
-}
-@keyframes collapse {
-    from{transform: translate(0,0);}
-    to{transform: translate(0,-20px);}
-}
+

@@ -1,27 +1,78 @@
-.slider{
+.house-content{
     display: flex;
     flex-direction: column;
-    position: relative;
-    .slider-item{
-        width: 100%;
-        height: 500px;
+    gap: 1em;
+    .slider{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        height: 415px;
+        .slider-item{
+            width: 100%;
+            height:100%;
+            position: relative;
+            object-fit: cover;
+        }
+        .prev-button, .next-button{
+            border: none;
+            background-color: transparent;
+            position: absolute;
+            top: 50%;
+            cursor: pointer;
+            z-index: 100;
+        }
+        .prev-button{
+            left: 5px;
+            transform: rotate(-180deg);
+        }
+        .next-button{
+            right: 5px;
+            
+        }
+        .slider-pagination{
+            position: absolute;
+            bottom: 1em;
+            left: 50%;
+            color: #ffff;
+            font-weight: 400;
+        }
     }
-    .prev-button, .next-button{
-        border: none;
-        background-color: transparent;
-        position: absolute;
-        top: 50%;
-        cursor: pointer;
-    }
-    .prev-button{
-        left: 5px;
-        transform: rotate(-90deg);
-    }
-    .next-button{
-        right: 5px;
-        transform: rotate(90deg);
-    }
-    .slider-pagination{
-        align-self: center;
+    .house-properties{
+        .title-and-host{
+            display: flex;
+            justify-content: end;
+            gap: 10px;
+            align-items: center;
+            color: #FF6060;
+        }
+        .title{
+            margin-right: auto;
+        }
+        .host{
+            width: 50px;
+        }
+        .tags-rating{
+            display: flex;
+            ul{
+                list-style-type: none;
+                display: flex;
+                justify-content: start;
+                padding: 0;
+                gap:1em;
+                .tag{
+                    background-color: #FF6060;
+                    height: 25px;
+                    padding: 10px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 20px;
+                    color: #ffff;
+                    font-weight: 500;
+                    font-size: 14px;
+                }
+            }
+           
+        }
     }
 }
