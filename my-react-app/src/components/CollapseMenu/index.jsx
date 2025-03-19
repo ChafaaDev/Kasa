@@ -6,7 +6,7 @@ export const chevronUp = <svg xmlns="http://www.w3.org/2000/svg" height="40px" v
                     </svg>
 
 function CollapseMenu({property, description}){
-    const [isActive, setIsActive] = useState(true)
+    const [isActive, setIsActive] = useState(false)
     const ContentRef = useRef(null)
     const [height, setHeight] = useState(0)
     useEffect(()=>{
@@ -28,8 +28,8 @@ function toggleText(){
                 <button className={`arrow ${isActive? 'active' : ''}`} onClick={toggleText}>{chevronUp}</button>
                 
                 </div>
-                {/* <p className={`description ${isActive ? 'display': ""}`}>{description}</p> */}
-                <p ref={ContentRef} className='description' style={{height:`${height}px`}}>{description}</p>
+               
+                <div ref={ContentRef} className='description' style={{height:`${height}px`}}>{description}</div>
             </article>
            
     )

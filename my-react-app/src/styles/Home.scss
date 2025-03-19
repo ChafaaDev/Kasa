@@ -39,10 +39,12 @@ $lightBackgroundColor:#F6F6F6;
     background-color: $lightBackgroundColor;
     border-radius: 10px;
     padding-block: 30px;
+    width: 100%;
     .gallery-item{
-      flex: 1 1 auto;
+      flex: 1;
+      flex-basis: 25%;
       height: 400px;
-      width: 400px;
+      // width: 400px;
       border-radius: 10px;
       position: relative;
 
