@@ -22,10 +22,10 @@ const equipments = filtered.map(elem=>elem.equipments)
 
 const [slideIndex, setSlideIndex] = useState(0)
 
-const [arrowButton, setArrowButton] = useState(true)
+const [hasGallery, setGallery] = useState(true)
 
 function nextSlide(index){
-    setArrowButton(true)
+    
     
     setSlideIndex(s=>s+index)
     
@@ -41,11 +41,14 @@ function prevSlide(index){
     setSlideIndex(s=>s - index)
     if(slideIndex==0){setSlideIndex(pictures[0].length - 1)}
 }
-function checkSlide(){
 
-    if(pictures[0].length<=0){setArrowButton(false)}
-}
-document.addEventListener('DOMContentLoaded',checkSlide)
+useEffect(()=>{
+    if(pictures[0].length <2 ){
+        setGallery(false)
+    }else{
+        setGallery(true)
+    }
+}, [])
 
 function setStarcolors(index){
     
@@ -61,13 +64,13 @@ return(
     <main className="house-content">
         
         <div className="slider">
-            
-            {arrowButton?<button className='next-button' 
+        {hasGallery? (<div className="slider-controls">
+            <button className='next-button' 
                                  onClick={()=>nextSlide(1)}>
                                     <MdArrowForwardIos size={48} 
                                                         color='#ffff'
                                     />
-                        </button>:null}
+                        </button>
             
             <button className='prev-button' 
                     onClick={()=>prevSlide(1)}>
@@ -76,37 +79,51 @@ return(
                         />
             </button>
             
+            <span className='slider-pagination'>{slideIndex+1}/{pictures[0].length}</span>
+            
+            </div>
+            
+         ) :null} 
+
             <img className='slider-item' src={pictures[0][slideIndex]} alt="picture" />
             
-            <span className='slider-pagination'>{slideIndex+1}/{pictures[0].length}</span>
+           
             
         </div>
     <section className="house-properties">
         
-        <div className="title-and-host">
+        <div className="title-location-tags">
             
             <h2 className='title'>{filtered.map(item=>item.title)}</h2>
-            
-           
-            <div className='host-container' style={{borderRadius:'50%'}}>
-                <h4 className='host-title'>{filtered.map(item=>item.host.name)}</h4>
-                <img src={filtered.map(item=>item.host.picture)} alt="host-picture" style={{objectFit:'cover', height:'64px', borderRadius:'inherit'}}/>
-            </div>
-
-        </div>
-        
-        <div className='location'>
             <h3 className="house-location">{filtered.map(item=>item.location)}</h3>
+            <div className="tags">
+                    <ul>
+                            {tags[0].map((item, index)=><li 
+                            key={index} 
+                            className='tag'>{item}</li>)}
+                    </ul> 
+         </div>
+           
 
         </div>
         
-        <div className="tags-rating">
+        
             
-            <ul>
-            {tags[0].map((item, index)=><li key={index} className='tag'>{item}</li>)}
-            </ul> 
-            
-            <div className="rating-stars-container">
+
+        
+        
+    
+        <div className='host-and-ratings'>
+                <div className='host-container' style={{borderRadius:'50%'}}>
+                        
+                        <h4 className='host-title'>{filtered.map(item=>item.host.name)}</h4>
+                        
+                        <img src={filtered.map(item=>item.host.picture)} 
+                            alt="host-picture" 
+                            style={{objectFit:'cover', height:'64px', borderRadius:'inherit'}}
+                        />
+                </div>
+                <div className="rating-stars-container">
                     
                     {[...Array(5)].map(( _ ,index)=>{
                         return <FaStar className='star' 
@@ -115,9 +132,11 @@ return(
                                             size={24}
                                             style={{marginRight:'.5em',border:'none'}}/>
                     })}
-            </div>
+                </div>
+        </div>    
+           
         
-        </div>
+        
     </section>
     <section className='details'>
             <div className='accordion'>
@@ -128,9 +147,9 @@ return(
             <div className='accordion'>
              
             <CollapseMenu property = 'Equipement'
-                    description = {equipments.map((item, index)=>{
+                    description = {equipments.map((item)=>{
                         return <ul style={{listStyleType:'none', padding:'10px'}}>
-                            {item.map(it=><li key={index}>{it}</li>)}
+                            {item.map((it,index)=><li key={index}>{it}</li>)}
                         </ul>
                     })}
             />

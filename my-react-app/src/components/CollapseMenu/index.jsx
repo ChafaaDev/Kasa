@@ -11,6 +11,7 @@ function CollapseMenu({property, description}){
     const [height, setHeight] = useState(0)
 
     useEffect(()=>{
+        
         if(isActive){
                         setHeight(ContentRef.current.scrollHeight) 
                           
