@@ -36,18 +36,25 @@ $lightBackgroundColor:#F6F6F6;
     display: flex;
     flex-wrap: wrap;
     align-content: center;
+    justify-content: center;
     background-color: $lightBackgroundColor;
     border-radius: 10px;
     padding-block: 30px;
+    gap: 1em;
     width: 100%;
+    box-sizing: border-box;
+    a{
+     height: 400px;
+     width: 400px;
+     flex-basis: 30%;
+     box-sizing: border-box;
+    }
     .gallery-item{
-      flex: 1;
-      flex-basis: 25%;
-      height: 400px;
-      // width: 400px;
+      height:100%;
+      width: 100%;
       border-radius: 10px;
       position: relative;
-
+      
       img{
         height: 100%;
         width: 100%;

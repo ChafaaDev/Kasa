@@ -27,5 +27,18 @@
 }
 .collapse-container{
     margin-top: 40px;
+    width: 100%;
+    // justify-items: center;
+   
+    .accordion-list{
+        
+        list-style-type: none;
+        width: 100%;
+        align-items: center;
+        padding: 0;
+        width: 85%;
+        margin: auto;
+    }
+
 }
 

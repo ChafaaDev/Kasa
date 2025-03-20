@@ -3,9 +3,9 @@ import { Link, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import '../../styles/FicheAppart.scss'
 import {  FaStar   } from "react-icons/fa";
+import { MdArrowForwardIos, MdArrowBackIosNew } from "react-icons/md";
+import CollapseMenu from '../../components/CollapseMenu';
 
-// import { chevronUp } from '../../components/CollapseMenu'
-const arrowBtn = <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#FFFFFF"><path d="M304-68.43 234.43-139l343-343-343-343L304-895.57 717.57-482 304-68.43Z"/></svg>
 function FicheAppart(){
 
 let params = useParams()
@@ -18,11 +18,11 @@ const tags = filtered.map(item=>item.tags)
 
 const rating = filtered.map(item=>item.rating)
 
+const equipments = filtered.map(elem=>elem.equipments)
+
 const [slideIndex, setSlideIndex] = useState(0)
 
 const [arrowButton, setArrowButton] = useState(true)
-
-const [colors, setColors]  = useState('red')
 
 function nextSlide(index){
     setArrowButton(true)
@@ -42,6 +42,7 @@ function prevSlide(index){
     if(slideIndex==0){setSlideIndex(pictures[0].length - 1)}
 }
 function checkSlide(){
+
     if(pictures[0].length<=0){setArrowButton(false)}
 }
 document.addEventListener('DOMContentLoaded',checkSlide)
@@ -61,9 +62,19 @@ return(
         
         <div className="slider">
             
-            {arrowButton?<button className='next-button' onClick={()=>nextSlide(1)}>{arrowBtn}</button>:null}
+            {arrowButton?<button className='next-button' 
+                                 onClick={()=>nextSlide(1)}>
+                                    <MdArrowForwardIos size={48} 
+                                                        color='#ffff'
+                                    />
+                        </button>:null}
             
-            <button className='prev-button' onClick={()=>prevSlide(1)}>{arrowBtn}</button>
+            <button className='prev-button' 
+                    onClick={()=>prevSlide(1)}>
+                        <MdArrowBackIosNew size={48} 
+                                            color='#ffff'
+                        />
+            </button>
             
             <img className='slider-item' src={pictures[0][slideIndex]} alt="picture" />
             
@@ -97,7 +108,7 @@ return(
             
             <div className="rating-stars-container">
                     
-                    {[...Array(5)].map((star,index)=>{
+                    {[...Array(5)].map(( _ ,index)=>{
                         return <FaStar className='star' 
                                             key={index}
                                             color={setStarcolors(index)}
@@ -108,6 +119,24 @@ return(
         
         </div>
     </section>
+    <section className='details'>
+            <div className='accordion'>
+            <CollapseMenu property='Description' 
+                        description={filtered.map(item=>item.description)}
+            />
+            </div>
+            <div className='accordion'>
+             
+            <CollapseMenu property = 'Equipement'
+                    description = {equipments.map((item, index)=>{
+                        return <ul style={{listStyleType:'none', padding:'10px'}}>
+                            {item.map(it=><li key={index}>{it}</li>)}
+                        </ul>
+                    })}
+            />
+            
+             </div>           
+        </section>
     </main>
 )
 }
