@@ -87,10 +87,10 @@ return(
             
             <h2 className='title'>{filtered.map(item=>item.title)}</h2>
             
-            <h4 className='host'>{filtered.map(item=>item.host.name)}</h4>
-            
-            <div className='ball' style={{height:64, width:64, backgroundColor:'#C4C4C4', borderRadius:'50%'}}>
-
+           
+            <div className='host-container' style={{borderRadius:'50%'}}>
+                <h4 className='host-title'>{filtered.map(item=>item.host.name)}</h4>
+                <img src={filtered.map(item=>item.host.picture)} alt="host-picture" style={{objectFit:'cover', height:'64px', borderRadius:'inherit'}}/>
             </div>
 
         </div>

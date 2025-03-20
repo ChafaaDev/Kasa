@@ -43,12 +43,22 @@
             gap: 10px;
             align-items: center;
             color: #FF6060;
+            // width: 95%;
         }
         .title{
             margin-right: auto;
         }
-        .host{
-            width: 50px;
+        .host-container{
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            width: 500px;
+            padding: 0;
+            .host-title{
+                margin: 0;
+                padding: 0;
+                width: 15%;
+            }
         }
         .tags-rating{
             display: flex;
