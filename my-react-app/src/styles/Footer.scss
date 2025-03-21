@@ -19,3 +19,13 @@
         gap: .2em;
     }
 }
+@media(max-width:650px){
+    .kasa-footer{
+        img{
+            height: 30px;
+        }
+        .copy-text{
+            font-size:1em;
+        }
+    }
+}

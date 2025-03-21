@@ -1,6 +1,6 @@
 import AppartList from '../../data/AppartList.json'
 import { Link, useParams } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import '../../styles/FicheAppart.scss'
 import {  FaStar   } from "react-icons/fa";
 import { MdArrowForwardIos, MdArrowBackIosNew } from "react-icons/md";
@@ -23,6 +23,8 @@ const equipments = filtered.map(elem=>elem.equipments)
 const [slideIndex, setSlideIndex] = useState(0)
 
 const [hasGallery, setGallery] = useState(true)
+const imageRef = useRef()
+const [animatedImage, setAnimation] = useState(false)
 
 function nextSlide(index){
     
@@ -85,7 +87,7 @@ return(
             
          ) :null} 
 
-            <img className='slider-item' src={pictures[0][slideIndex]} alt="picture" />
+            <img ref={imageRef} className='slider-item' src={pictures[0][slideIndex]} alt="picture" />
             
            
             

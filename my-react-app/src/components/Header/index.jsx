@@ -6,7 +6,7 @@ function Header (){
     return(
         <header>
             <nav>
-            <img src={logo} alt="logo Kasa" />
+            <img src={logo} alt="logo Kasa" className='logo-kasa'/>
                 <ul>
                    
                    <NavLink to="/" className={({isActive})=>(isActive?'active-link':"")}><li>Accueil</li></NavLink> 

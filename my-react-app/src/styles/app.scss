@@ -6,3 +6,8 @@ body{
     justify-content:space-between;
     padding: 0 30px;
 }
+@media(max-width:500px){
+    body{
+        padding: 1em;
+    }
+}
