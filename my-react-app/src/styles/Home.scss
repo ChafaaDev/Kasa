@@ -5,6 +5,7 @@ $lightBackgroundColor:#F6F6F6;
     flex-direction: column;
     justify-content: space-between;
     gap:30px;
+    align-items: center;
 .home-banner-container{
     height: 225px;
     width: 100%;
@@ -16,13 +17,13 @@ $lightBackgroundColor:#F6F6F6;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative; 
+    position: relative;
+    flex: 1 1 auto; 
     h1{
       
         color: #FFFFFF;
         z-index: 100;
     }
-    
 }
 .home-banner-container::after{
     content: '';
@@ -44,24 +45,29 @@ $lightBackgroundColor:#F6F6F6;
     width: 100%;
     box-sizing: border-box;
     a{
-     height: 400px;
-     width: 400px;
+     height: 420px;
+     width: 420px;
      flex-basis: 30%;
+     flex: 1 1 auto;
+     padding: 0;
      box-sizing: border-box;
-    }
-    .gallery-item{
+     overflow: hidden;
+      figure{
       height:100%;
       width: 100%;
       border-radius: 10px;
       position: relative;
-      
+      box-sizing: border-box;
+      object-fit: cover;
+      margin-left: 0;
       img{
-        height: 100%;
-        width: 100%;
         object-fit: cover;
+        object-position: center;
+        height:100%;
+        width: 100%;
+        
+        overflow: hidden;
         border-radius: 10px;
-        
-        
       }
       .card-title{
         z-index: 100;
@@ -73,5 +79,24 @@ $lightBackgroundColor:#F6F6F6;
         font-weight: 700;
       }
     }
+    }
 }
+}
+@media(max-width:835px){
+  .home-container{
+    .home-banner-container{
+      height: 150px;
+      h1{
+       font-size: 1.3em;
+      }
+    }
+     .gallery-home{
+       background-color: #fff;
+       a{
+        display: block;
+        width: 100%;
+       }
+      }
+  }
+  
 }

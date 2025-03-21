@@ -5,7 +5,7 @@ export const chevronUp = <svg xmlns="http://www.w3.org/2000/svg" height="40px" v
                         <path d="M480-528 296-344l-56-56 240-240 240 240-56 56-184-184Z"/>
                     </svg>
 
-function CollapseMenu({property, description}){
+function CollapseMenu({property, description,id}){
     const [isActive, setIsActive] = useState(false)
     const ContentRef = useRef(null)
     const [height, setHeight] = useState(0)
@@ -35,7 +35,7 @@ function CollapseMenu({property, description}){
                 
                 </div>
                
-                <div ref={ContentRef} className='description' style={{height:`${height}px`}}>
+                <div ref={ContentRef} className='description' id={id} style={{height:`${height}px`}}>
                     <div className='description-text'>{description}</div>
                 </div>
             </article>

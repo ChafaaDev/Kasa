@@ -23,7 +23,9 @@ const equipments = filtered.map(elem=>elem.equipments)
 const [slideIndex, setSlideIndex] = useState(0)
 
 const [hasGallery, setGallery] = useState(true)
+
 const imageRef = useRef()
+
 const [animatedImage, setAnimation] = useState(false)
 
 function nextSlide(index){
@@ -61,6 +63,7 @@ function setStarcolors(index){
             return '#E3E3E3'
     }
 }
+
 return(
     
     <main className="house-content">
@@ -110,19 +113,14 @@ return(
         </div>
         
         
-            
-
-        
-        
-    
         <div className='host-and-ratings'>
-                <div className='host-container' style={{borderRadius:'50%'}}>
+                <div className='host-container'>
                         
                         <h4 className='host-title'>{filtered.map(item=>item.host.name)}</h4>
                         
                         <img src={filtered.map(item=>item.host.picture)} 
                             alt="host-picture" 
-                            style={{objectFit:'cover', height:'64px', borderRadius:'inherit'}}
+                            style={{objectFit:'cover', height:'64px',width:'64px', borderRadius:'50%'}}
                         />
                 </div>
                 <div className="rating-stars-container">
@@ -144,16 +142,19 @@ return(
             <div className='accordion'>
             <CollapseMenu property='Description' 
                         description={filtered.map(item=>item.description)}
+                       
             />
             </div>
             <div className='accordion'>
              
             <CollapseMenu property = 'Equipement'
+                           
                     description = {equipments.map((item)=>{
                         return <ul style={{listStyleType:'none', padding:'10px'}}>
                             {item.map((it,index)=><li key={index}>{it}</li>)}
                         </ul>
                     })}
+                    
             />
             
              </div>           
