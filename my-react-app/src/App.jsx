@@ -1,4 +1,4 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './Pages/home'
@@ -7,12 +7,15 @@ import './styles/app.scss'
 import Error from './Pages/Error'
 import FicheAppart from './Pages/FicheAppart'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+
+
 function App() {
-
-
-  return (
-    <>
-    <Router>
+  // const [theme, setTheme] = useState('light')
+  // function toggleTheme(){
+  //   setTheme((curr)=>curr === 'light' ? 'dark': 'light')
+  // }
+  return (  
+    <Router >
       <Header/>
       <Routes>
         <Route path="/" element={<Home />}/>
@@ -22,8 +25,6 @@ function App() {
       </Routes>
      <Footer />
     </Router>  
-   
-    </>
   )
 }
 
