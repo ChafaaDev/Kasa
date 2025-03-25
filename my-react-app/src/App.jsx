@@ -1,4 +1,4 @@
-// import { useState } from 'react'
+
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './Pages/home'
@@ -14,15 +14,18 @@ function App() {
   // function toggleTheme(){
   //   setTheme((curr)=>curr === 'light' ? 'dark': 'light')
   // }
+ 
   return (  
     <Router >
+      <main>
       <Header/>
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path='/Apropos' element={<About />}/>
-        <Route path='/logement/:id' element={<FicheAppart/>}/>
+        <Route path='/:id' element={<FicheAppart />}/>
         <Route path='*' element={<Error />}/>
       </Routes>
+      </main>
      <Footer />
     </Router>  
   )

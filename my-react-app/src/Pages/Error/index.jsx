@@ -8,7 +8,7 @@ function Error() {
       <span className="error-message">
         Oups! La page que vous demandez n'existe pas.
       </span>
-      <Link to="/">Reourner sur la page d'acceuil</Link>
+      <Link to="/">Retourner sur la page d'acceuil</Link>
     </div>
   );
 }

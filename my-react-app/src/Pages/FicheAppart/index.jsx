@@ -1,15 +1,23 @@
 import AppartList from "../../data/AppartList.json";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate, Navigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import "../../styles/FicheAppart.scss";
 import { FaStar } from "react-icons/fa";
 import { MdArrowForwardIos, MdArrowBackIosNew } from "react-icons/md";
 import CollapseMenu from "../../components/CollapseMenu";
-import Accordion from "../../components/Accordion";
+ 
 function FicheAppart() {
-  let params = useParams();
-
-  const filtered = AppartList.filter((appart) => appart.id === params.id);
+  
+ 
+  
+  const {id} = useParams();
+  const isValidId = (id)=>{
+    const ids = AppartList.map(ap=>ap.id)
+    return ids.includes(id)
+  }
+  if(!isValidId(id)){return <Navigate to='*'/>}
+  const filtered = AppartList.filter((appart) => appart.id === id);
+  
 
   const pictures = filtered.map((pic) => pic.pictures);
 
@@ -25,7 +33,7 @@ function FicheAppart() {
 
   const imageRef = useRef();
 
-  const [animatedImage, setAnimation] = useState(false);
+ 
 
   function nextSlide(index,cb) {
     setSlideIndex((s) => s + index);
@@ -57,6 +65,7 @@ function FicheAppart() {
     }
   }, []);
 
+ 
   function setStarcolors(index) {
     if (index < rating) {
       return "#FF6060";
@@ -64,9 +73,9 @@ function FicheAppart() {
       return "#E3E3E3";
     }
   }
-
+  
   return (
-    <main className="house-content">
+    <div className="house-content">
       <div className="slider">
         {hasGallery ? (
           <div className="slider-controls">
@@ -150,11 +159,7 @@ function FicheAppart() {
         <ul className="accordion">
           <CollapseMenu
             property="Equipement"
-            // description = {equipments.map((item)=>{
-            //     return <ul style={{listStyleType:'none', padding:'10px'}}>
-            //         {item.map((it,index)=><li key={index}>{it}</li>)}
-            //     </ul>
-            // })}
+          
 
             description={equipments[0].map((item, index) => (
               <li key={index}>{item}</li>
@@ -162,22 +167,9 @@ function FicheAppart() {
           />
         </ul>
       </section>
-      {/* <section className="house-details">
-      <Accordion 
-      title='Description'
-      content={filtered.map(item=>item.description)}
-      />
-        
-      <Accordion
-      title='Equipements'
-      content={equipments[0].map((item, index)=>{
-        return <ul className="equipment-list" style={{listStyle:'none'}}>
-          <li key={index}>{item}</li>
-        </ul>
-      })}
-      />
-      </section> */}
-    </main>
+   
+      
+    </div>
   );
 }
 export default FicheAppart;

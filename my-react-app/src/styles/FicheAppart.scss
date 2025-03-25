@@ -147,6 +147,9 @@
         .prev-button svg ,.next-button svg{
            height:30px;
         }
+        .slider-pagination{
+            display: none;
+        }
     }
     .details{
         flex-direction: column;

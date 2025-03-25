@@ -12,6 +12,10 @@ body{
     justify-content:space-between;
     padding: 0 30px;
     max-width: 1600px;
+    main{
+        display: flex;
+        flex-direction: column;
+    }
 }
 @media(max-width:800px){
     body{

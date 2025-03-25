@@ -25,25 +25,20 @@ $main-bg-color:#F6F6F6;
     .description{
         background-color:$main-bg-color;
         overflow: hidden;
+
         transition: height .2s linear;
         margin: 0;
-        animation: fade-in .3s linear;
-        animation-iteration-count:1;
-       
         .description-text{
            line-height: 1.5;
             font-size: 18px;
             margin: 0;
             padding: 10px 20px;
-            
         }
     }
 
 }
-@keyframes fade-in {
-    from{max-height: 0;}
-    to{max-height:200px;}
-}
+
+
 @media(max-width:710px){
     .collapse-container{
         .collapse-item{

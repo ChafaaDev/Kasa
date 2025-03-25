@@ -52,6 +52,7 @@ $lightBackgroundColor:#F6F6F6;
      padding: 0;
      box-sizing: border-box;
      overflow: hidden;
+     border-radius: 10px;
       figure{
       height:100%;
       width: 100%;
@@ -65,8 +66,16 @@ $lightBackgroundColor:#F6F6F6;
         object-position: center;
         height:100%;
         width: 100%;
-        
         overflow: hidden;
+        border-radius: 10px;
+      }
+      figure::before{
+        content: '';
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        background-image: linear-gradient(rgba(0 0 0/0.05),rgba(0 0 0/0.1),rgba(0 0 0/0.2),rgba(0 0 0/0.8));
+        z-index: 10;
         border-radius: 10px;
       }
       .card-title{
