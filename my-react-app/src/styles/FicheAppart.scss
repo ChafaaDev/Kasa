@@ -1,199 +1,198 @@
-.house-content{
+.house-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  .slider {
     display: flex;
     flex-direction: column;
-    gap: .5em;
-    .slider{
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        height: 500px;
-        .slider-item{
-            width: 100%;
-            height:100%;
-            position: relative;
-            object-fit: cover;
-            border-radius: 20px;   
-        }
-        .animated{
-            animation: fade-in .5s ease-in;
-            // animation-iteration-count: 1;
-        }
-        .prev-button, .next-button{
-            border: none;
-            background-color: transparent;
-            position: absolute;
-            cursor: pointer;
-            z-index: 100;
-            height: 100%;
-            padding: 1em;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .prev-button:active,.next-button:active{
-            background-color: rgba($color: hsla(0, 0%, 0%, 0.118), $alpha: 0.2);
-        }
-        .prev-button{
-            left: 0px;
-            border-radius: 20px 0 0 20px;
-        }
-        .next-button{
-            right: 0px;
-            border-radius: 0 20px 20px 0;
-        }
-        .slider-pagination{
-            position: absolute;
-            bottom: 1em;
-            left: 50%;
-            color: #ffff;
-            font-weight: 400;
-            z-index:100;
-        }
+    position: relative;
+    height: 500px;
+    .slider-item {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      object-fit: cover;
+      border-radius: 20px;
     }
-    .house-properties{
+    .animated {
+      animation: fade-in 0.5s ease-in;
+      // animation-iteration-count: 1;
+    }
+    .prev-button,
+    .next-button {
+      border: none;
+      background-color: transparent;
+      position: absolute;
+      cursor: pointer;
+      z-index: 100;
+      height: 100%;
+      padding: 1em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .prev-button:active,
+    .next-button:active {
+      background-color: rgba($color: hsla(0, 0%, 0%, 0.118), $alpha: 0.2);
+    }
+    .prev-button {
+      left: 0px;
+      border-radius: 20px 0 0 20px;
+    }
+    .next-button {
+      right: 0px;
+      border-radius: 0 20px 20px 0;
+    }
+    .slider-pagination {
+      position: absolute;
+      bottom: 1em;
+      left: 50%;
+      color: #ffff;
+      font-weight: 400;
+      z-index: 100;
+    }
+  }
+  .house-properties {
+    display: flex;
+    align-items: center;
+    .title-location-tags {
+      h2 {
+        color: #ff6060;
+      }
+      display: flex;
+      flex-direction: column;
+      width: 70%;
+    }
+    .tags {
+      ul {
+        list-style-type: none;
         display: flex;
+        justify-content: start;
+        padding: 0;
+        gap: 1em;
+        li {
+          background-color: #ff6060;
+          color: #ffff;
+          padding: 0.5em 1em;
+          border-radius: 10px;
+          font-size: 1em;
+        }
+      }
+    }
+    .host-and-ratings {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      gap: 5em;
+      .host-container {
+        display: flex;
+        justify-content: end;
         align-items: center;
-        .title-location-tags{
-            h2{
-                color: #FF6060;
-            }
-            display: flex;
-            flex-direction: column;
-            width: 70%;
+        .host-title {
+          margin: 0;
+          padding: 0;
+          height: 64px;
+          display: flex;
+          align-items: center;
+          width: 4.5em;
+          margin-right: 0;
+          text-align: start;
+          color: #ff6060;
         }
-        .tags{
-            ul{
-                list-style-type: none;
-                display: flex;
-                justify-content: start;
-                padding: 0;
-                gap:1em;
-                li{
-                    background-color: #FF6060;
-                    color: #ffff;
-                    padding: .5em 1em;
-                    border-radius: 10px;
-                    font-size: 1em;
-                }
-            }
-          
-        }
-    .host-and-ratings{
+      }
+      .rating-stars-container {
+        width: 100%;
         display: flex;
-        flex-direction: column;
-        width: 50%;
-        gap: 5em;
-        .host-container{
-            display: flex;
-            justify-content: end;
-            align-items: center;
-            .host-title{
-                margin: 0;
-                padding: 0;
-                height: 64px;
-                display: flex;
-                align-items:center;
-                width: 4.5em;
-                margin-right:0;
-                text-align: start;
-                color: #FF6060;
-            }
-        }
-        .rating-stars-container{
-            width: 100%;
-            display: flex;
-            justify-content: end;
-        }
+        justify-content: end;
+      }
     }
-        
+  }
+  .details {
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+
+    .accordion {
+      flex-basis: 50%;
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      li {
+        width: 100%;
+      }
     }
-    .details{
-        display: flex;
-        justify-content: center;
-        gap: 3em;
-       
-        .accordion{
-            // display: inline-block;
-            // width: 50%;
-            flex-basis: 50%;
-            padding: 0;
-            margin: 0;
-            list-style-type: none;
-            // flex-direction: column;
-            li{
-                width:100%;
-                
-            }
-        }
-    }
+  }
 }
 @keyframes fade-in {
-   from{opacity: 0;} 
-   to{opacity: 1;}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-@media(max-width:710px){
-  .house-content{
+@media (max-width: 710px) {
+  .house-content {
     padding: 0;
-    .slider{
-        .slider-item{
-            border-radius: 10px;
-        }
-        .prev-button{
-            border-radius: 10px 0 0 10px;
-        }
-        .next-button{
-            border-radius: 0 10px 10px 0;
-        }
-        .prev-button svg ,.next-button svg{
-           height:30px;
-        }
-        .slider-pagination{
-            display: none;
-        }
+    .slider {
+      .slider-item {
+        border-radius: 10px;
+      }
+      .prev-button {
+        border-radius: 10px 0 0 10px;
+      }
+      .next-button {
+        border-radius: 0 10px 10px 0;
+      }
+      .prev-button svg,
+      .next-button svg {
+        height: 30px;
+      }
+      .slider-pagination {
+        display: none;
+      }
     }
-    .details{
-        flex-direction: column;
-        .accordion{
-            width: 100%;
+    .details {
+      flex-direction: column;
+      .accordion {
+        width: 100%;
+      }
+    }
+    .house-properties {
+      flex-direction: column;
+      align-items: start;
+      h2 {
+        font-size: 1.2em;
+      }
+      .host-and-ratings {
+        flex-direction: row;
+        width: 100%;
+        align-items: center;
+        gap: 0;
+        padding: 0;
+        justify-content: start;
+        .rating-stars-container {
+          order: 1;
+          margin-right: auto;
+          display: flex;
+          justify-content: start;
         }
-    } 
-   .house-properties{
-        flex-direction: column;
-        align-items: start;
-        h2{
-            font-size:1.2em ;
+        .host-container {
+          order: 2;
+          width: 70%;
         }
-        .host-and-ratings{
-            flex-direction: row;
-            width: 100%;
-            align-items: center;
-            gap: 0;
-            padding: 0;
-            justify-content: start;
-            .rating-stars-container{
-                order: 1;
-                margin-right:auto;
-                display: flex;
-                justify-content: start;
-                
-            }
-            .host-container{
-                order: 2;
-                width: 70%;
-            }
+      }
+      .tags {
+        width: 100%;
+        ul li {
+          font-size: 0.7em;
         }
-        .tags{
-            width: 100%;
-            ul li{
-                font-size: .7em;
-                
-            }
-        }
-   }
-   .details{
-    display: flex;
-    flex-direction: column;
-    gap:0
-   }
+      }
+    }
+    .details {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
   }
 }

@@ -1,58 +1,53 @@
-$main-bg-color:#F6F6F6;
-.collapse-container{
-    .collapse-item{
-        display: flex;
-        background-color: #FF6060;
-        border-radius: 5px;
-        align-items: center;
-        padding: 0 10px;
-        .arrow{
-            margin-right: auto;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            border: none;
-            background-color: transparent;
-        }
-        .active{
-            transform: rotate(-180deg);
-        }
-        .title{
-            color: #fff;
-            width: 100%;
-          }
-        
+$main-bg-color: #f6f6f6;
+.collapse-container {
+  .collapse-item {
+    display: flex;
+    background-color: #ff6060;
+    border-radius: 5px;
+    align-items: center;
+    padding: 0 10px;
+    .arrow {
+      margin-right: auto;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      border: none;
+      background-color: transparent;
     }
-    .description{
-        background-color:$main-bg-color;
-        overflow: hidden;
-
-        transition: height .2s linear;
-        margin: 0;
-        .description-text{
-           line-height: 1.5;
-            font-size: 18px;
-            margin: 0;
-            padding: 10px 20px;
-        }
+    .active {
+      transform: rotate(-180deg);
     }
+    .title {
+      color: #fff;
+      width: 100%;
+    }
+  }
+  .description {
+    background-color: $main-bg-color;
+    overflow: hidden;
 
+    transition: height 0.2s linear;
+    margin: 0;
+    .description-text {
+      line-height: 1.5;
+      font-size: 18px;
+      margin: 0;
+      padding: 10px 20px;
+    }
+  }
 }
 
-
-@media(max-width:710px){
-    .collapse-container{
-        .collapse-item{
-            .title{
-                font-size: 1em;
-            }
-        }
-        .collapse-item{
-            .description-text{
-                line-height: 1;
-                font-size: 14px;
-            }
-        }
+@media (max-width: 710px) {
+  .collapse-container {
+    .collapse-item {
+      .title {
+        font-size: 1em;
+      }
     }
+    .collapse-item {
+      .description-text {
+        line-height: 1;
+        font-size: 14px;
+      }
+    }
+  }
 }
-
-

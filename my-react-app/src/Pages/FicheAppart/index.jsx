@@ -5,19 +5,17 @@ import "../../styles/FicheAppart.scss";
 import { FaStar } from "react-icons/fa";
 import { MdArrowForwardIos, MdArrowBackIosNew } from "react-icons/md";
 import CollapseMenu from "../../components/CollapseMenu";
- 
+
 function FicheAppart() {
-  
- 
-  
-  const {id} = useParams();
-  const isValidId = (id)=>{
-    const ids = AppartList.map(ap=>ap.id)
-    return ids.includes(id)
+  const { id } = useParams();
+  const isValidId = (id) => {
+    const ids = AppartList.map((ap) => ap.id);
+    return ids.includes(id);
+  };
+  if (!isValidId(id)) {
+    return <Navigate to="*" />;
   }
-  if(!isValidId(id)){return <Navigate to='*'/>}
   const filtered = AppartList.filter((appart) => appart.id === id);
-  
 
   const pictures = filtered.map((pic) => pic.pictures);
 
@@ -33,14 +31,12 @@ function FicheAppart() {
 
   const imageRef = useRef();
 
- 
-
-  function nextSlide(index,cb) {
+  function nextSlide(index, cb) {
     setSlideIndex((s) => s + index);
     if (slideIndex >= pictures[0].length - 1) {
       setSlideIndex(0);
     }
-    cb()
+    cb();
   }
 
   function prevSlide(index, cb) {
@@ -48,13 +44,13 @@ function FicheAppart() {
     if (slideIndex == 0) {
       setSlideIndex(pictures[0].length - 1);
     }
-    cb()
+    cb();
   }
-  function handleFadeInPicture(){
-    imageRef.current.classList.add('animated')
-   setTimeout(() => {
-    imageRef.current.classList.remove('animated')
-   }, 600);
+  function handleFadeInPicture() {
+    imageRef.current.classList.add("animated");
+    setTimeout(() => {
+      imageRef.current.classList.remove("animated");
+    }, 600);
   }
 
   useEffect(() => {
@@ -65,7 +61,6 @@ function FicheAppart() {
     }
   }, []);
 
- 
   function setStarcolors(index) {
     if (index < rating) {
       return "#FF6060";
@@ -73,17 +68,23 @@ function FicheAppart() {
       return "#E3E3E3";
     }
   }
-  
+
   return (
     <div className="house-content">
       <div className="slider">
         {hasGallery ? (
           <div className="slider-controls">
-            <button className="next-button" onClick={() => nextSlide(1,handleFadeInPicture)}>
+            <button
+              className="next-button"
+              onClick={() => nextSlide(1, handleFadeInPicture)}
+            >
               <MdArrowForwardIos size={48} color="#ffff" />
             </button>
 
-            <button className="prev-button" onClick={() => prevSlide(1,handleFadeInPicture)}>
+            <button
+              className="prev-button"
+              onClick={() => prevSlide(1, handleFadeInPicture)}
+            >
               <MdArrowBackIosNew size={48} color="#ffff" />
             </button>
 
@@ -159,16 +160,12 @@ function FicheAppart() {
         <ul className="accordion">
           <CollapseMenu
             property="Equipement"
-          
-
             description={equipments[0].map((item, index) => (
               <li key={index}>{item}</li>
             ))}
           />
         </ul>
       </section>
-   
-      
     </div>
   );
 }
