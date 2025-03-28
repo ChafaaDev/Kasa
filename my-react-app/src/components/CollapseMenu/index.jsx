@@ -1,5 +1,6 @@
 import "../../styles/Collapse.scss";
 import { useState, useEffect, useRef } from "react";
+import PropTypes from 'prop-types';
 import { IoIosArrowUp } from "react-icons/io";
 
 
@@ -46,3 +47,13 @@ function CollapseMenu({ property, description }) {
   );
 }
 export default CollapseMenu;
+
+CollapseMenu.PropTypes = {
+  property:PropTypes.string,
+  description:PropTypes.string
+};
+
+CollapseMenu.defaultProps = {
+  property:'Propriété',
+  description : 'Description'
+}

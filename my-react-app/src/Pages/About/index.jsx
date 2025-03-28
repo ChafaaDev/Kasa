@@ -2,12 +2,12 @@ import banner from "../../assets/banner.jpg";
 import "../../styles/About.scss";
 import CollapseMenu from "../../components/CollapseMenu";
 
-function About(props) {
+function About() {
   const collapsingContainers = [
     {
       title: "Fiabilté",
       description:
-        "Les annonces postées sur Kasa garantissent une fiabilité totale.Les photos sont conformes aux logements, et toutes les information sont régulièrement vérifiées par nos équipes.",
+        "Les annonces postées sur Kasa garantissent une fiabilité totale.Les photos sont conformes aux logements, et toutes les informations sont régulièrement vérifiées par nos équipes.",
     },
     {
       title: "Respect",
@@ -17,7 +17,7 @@ function About(props) {
     {
       title: "Service",
       description:
-        "La qualité du service est au coeur de notre engagement chez Kasa. Nous veillons à ce que chaque interaction, que ce soit  avec nos hotes ou  nos locataires, soit empreinte de respect et de bienveillance.",
+        "La qualité du service est au coeur de notre engagement chez Kasa. Nous veillons à ce que chaque interaction, que ce soit  avec nos hôtes ou  nos locataires, soit empreinte de respect et de bienveillance.",
     },
     {
       title: "Sécurité",

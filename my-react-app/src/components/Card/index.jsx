@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+import placeHolder from '../../assets/Thumbnail.png'
 function Card({ id, title, picture }) {
   return (
     <figure className="gallery-item" id={id}>
@@ -7,3 +9,13 @@ function Card({ id, title, picture }) {
   );
 }
 export default Card;
+Card.prototype = {
+  id:PropTypes.string,
+  title:PropTypes.string,
+  picture:PropTypes.string
+}
+Card.defaultProps = {
+  id:'id',
+  title:'Logement',
+  picture:{placeHolder}
+}
