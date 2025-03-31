@@ -9,7 +9,7 @@ function Card({ id, title, picture }) {
   );
 }
 export default Card;
-Card.prototype = {
+Card.PropTypes = {
   id:PropTypes.string,
   title:PropTypes.string,
   picture:PropTypes.string
